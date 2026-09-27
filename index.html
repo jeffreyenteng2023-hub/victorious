@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I Have a Question...</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="card" id="question-card">
+    <!-- This links to your exact uploaded image file -->
+    <img src="victorious.jpeg" alt="Our Picture">
+    
+    <h1>Will you go on a date with me? ☕✨</h1>
+    
+    <div class="btn-container">
+      <button class="btn yes-btn" onclick="sayYes()">Yes! ❤️</button>
+      <button class="btn no-btn" id="no-button">No 😢</button>
+    </div>
+  </div>
+
+  <div class="card hidden" id="success-card">
+    <h1>Yay! It's a date! See you soon 🥰</h1>
+  </div>
+
+  <script>
+    const noButton = document.getElementById('no-button');
+    const questionCard = document.getElementById('question-card');
+    const successCard = document.getElementById('success-card');
+
+    noButton.addEventListener('mouseover', () => {
+      const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+      const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+      noButton.style.position = 'absolute';
+      noButton.style.left = `${x}px`;
+      noButton.style.top = `${y}px`;
+    });
+
+    noButton.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+      const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+      noButton.style.position = 'absolute';
+      noButton.style.left = `${x}px`;
+      noButton.style.top = `${y}px`;
+    });
+
+    function sayYes() {
+      questionCard.classList.add('hidden');
+      successCard.classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
